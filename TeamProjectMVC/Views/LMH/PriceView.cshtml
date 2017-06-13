@@ -1,0 +1,27 @@
+﻿@model List<TeamProjectMVC.Models.Product>
+@{
+    ViewBag.Title = "PriceView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>PriceView</h2>
+
+
+@foreach (var p in Model)
+{
+    <table border="1" , width="600px" height="500px" =>
+        <th colspan="2"> Product</th>
+        <tr>
+            <td><p>@p.ProductName</p><p>@p.Description</p><p>@p.Price</p>
+            <td><div><img src="~/Content/img/@p.ImgPath" height="350px" width="350px"></div></td>
+        </tr>
+        <th colspan="1">
+        <td>
+            @Html.ActionLink("ProductDetails", "ProductDetails", new { productId = p.ProductID })
+            <a href="@Url.Action("AddtoCart", "Home", new { Id = p.ProductID }, null)">AddtoCart</a>
+        </td>
+        </th>
+    </table>
+    <br />
+    <br />
+}

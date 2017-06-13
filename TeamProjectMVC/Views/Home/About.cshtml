@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<link href="~/Content/about.css" rel="stylesheet" />
+<!-- Page Content -->
+<div class="container">
+
+    <!-- Introduction Row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                About Us
+                <small>It's Nice to Meet You!</small>
+            </h1>
+            <p>This project is delivered to you by Kardasia :)</p>
+        </div>
+    </div>
+
+    <!-- Team Members Row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Our Team</h2>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <img class="img-circle img-responsive img-center" src="~/Content/img/chris.jpg">
+            <h3>
+                Chris Panagoulias
+                <small>Still figuring out</small>
+            </h3>
+            <p>Chris is currently sleeping, trying to beat Sleeping world record! Please try later </p>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <img class="img-circle img-responsive img-center" src="~/Content/img/superdad.jpg" alt="">
+            <h3>
+                Teodoros Kontakos
+                <small>Super Dad</small>
+            </h3>
+            <p>Super-Teo is currently drinking another frappe! Please try later</p>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center">
+            <img class="img-circle img-responsive img-center" src="~/Content/img/me.jpg" alt="">
+            <h3>
+                Efthimis Dellis
+                <small>Looking around</small>
+            </h3>
+            <p>Currently having a cigar, buy him a beer or please try later</p>
+        </div>
+      </div>
+    <p><strong>We are Kardasia, three busy personalities with their own problems to solve!</strong>
+    <a href="@Url.Action("Contact","Home")">Contact Us</a></p>
+    </div>
+
+

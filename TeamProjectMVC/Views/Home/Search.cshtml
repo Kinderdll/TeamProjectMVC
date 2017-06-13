@@ -1,0 +1,53 @@
+﻿@model TeamProjectMVC.Models.SearchViewModel
+
+@{
+    ViewBag.Title = "Product List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>What are you looking for</h2>
+@using (Html.BeginForm())//"Product", "Product", FormMethod.Get, new { @class = "Search-form" }))
+{
+    @Html.LabelFor(x => Model.Search);
+    @Html.EditorFor(x => Model.Search);
+    
+        <input type="submit" value="Search" id="btnSubmit" />
+    
+}
+<br />
+@if (Model.Results != null) {
+    foreach (TeamProjectMVC.Models.Product b in Model.Results)
+    {
+        <div>
+          <table>
+              
+              <tr><td>@b.ProductName</td></tr>
+              <tr><td>@b.Description</td></tr>
+              <tr><td>@b.Price</td></tr>
+              <tr><td><img style="height:200px; width:200px" src="~/Content/img/@b.ImgPath" /></td></tr>
+          <tr><td><a href="@Url.Action("AddtoCart","Home", new { Id = b.ProductID }, null)">AddtoCart</a></td></tr>
+        </table>
+            </div>
+
+
+    }
+}
+<!--<div id="DivGrid">
+   // 
+        //var grid = new WebGrid(source: Model.Results, canPage: true, rowsPerPage: 4, defaultSort: "ID");
+        //if (Model.Results != null)
+        //{
+        //    <div><strong> ViewBag.SearchParameter</strong> | grid.TotalRowCount Html.Label("Record(s) found")</div>
+          //  grid.GetHtml(tableStyle: "PGrid", headerStyle: "Header", alternatingRowStyle: "altRow", htmlAttributes: new { id = "DataTable" }, columns: grid.Columns(
+        //grid.Column("ID"),
+        //grid.Column("Product Name"),
+        //grid.Column("Product Price"),
+       // grid.Column("Product Description")));
+       // }
+       // else
+      //  {
+    //        <hr />Html.Label("No, Record(s) not found")<hr />
+  //      }
+//    }
+</div> -->

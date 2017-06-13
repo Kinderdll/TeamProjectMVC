@@ -1,0 +1,41 @@
+﻿@model TeamProjectMVC.Models.ShoppingCart
+@{
+    ViewBag.Title = "ShoppingCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Your ShoppingCart</h2>
+@if (Model.Products.Count <= 0)
+{
+    <h3>Empty ShoppingCart </h3>
+
+}
+else
+{
+    foreach (var product in Model.Products)
+    {
+        <div>
+            <table>
+                <tr>
+                    <td>@product.ProductName</td>
+                </tr>
+                <tr>
+                    <td>
+                        @product.Price
+                    </td>
+                </tr>   
+              
+            </table>
+        </div>
+        <a href="@Url.Action("DeleteFromCart","Home", new { Id = product.ProductID }, null)">DeleteFromCart</a>
+    }
+
+    
+    <br />
+    <p>Your ShoppingCart : @Model.Price</p>
+    <br />
+    @Html.ActionLink("SendOrder","Order")
+
+}
+
+

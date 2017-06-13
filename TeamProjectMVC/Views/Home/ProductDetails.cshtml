@@ -1,0 +1,14 @@
+﻿@model TeamProjectMVC.Models.Product
+@{
+    ViewBag.Title = "ProductDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ProductDetails</h2>
+<p>Here is the detail descritpion: </p>
+
+<div><p>@Model.Description</p></div>
+<div><p><img src="~/Content/img/@Model.ImgPath" /></p></div>
+       
+@Html.ActionLink("Back to products", "Products", "Home")
+

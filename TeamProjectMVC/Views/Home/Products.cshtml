@@ -1,0 +1,96 @@
+﻿@model List<TeamProjectMVC.Models.Product>
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+
+<h2>Products</h2>
+<h3>Here u can find all of our Products</h3>
+@for (int i = 0; i < Model.Count; i = i + 3)
+{
+<div class="row">
+    @if (i < Model.Count)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <img src="~/Content/img/@Model[i].ImgPath" />
+                <div class="caption">
+                    <h4 class="pull-right">@Model[i].Price</h4>
+                    <h4>
+                        @Model[i].ProductName
+                    </h4>
+                    <p>@Model[i].Description</p>
+                    @if (Session["User"] != null)
+                    {
+                    <p><a href="@Url.Action("AddtoCart", "Home", new { Id = Model[i].ProductID }, null)">Add to Cart</a></p>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    @if (i+1 < Model.Count) {
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            <img src="~/Content/img/@Model[i+1].ImgPath" />
+            <div class="caption">
+                <h4 class="pull-right">@Model[i + 1].Price</h4>
+                <h4>
+                    @Model[i + 1].ProductName
+                </h4>
+                <p>@Model[i + 1].Description</p>
+                
+                @if (Session["User"] != null)
+                {
+                <p><a href="@Url.Action("AddtoCart", "Home", new { Id = Model[i + 1].ProductID }, null)">Add to Cart</a></p>
+                }
+            </div>
+        </div>
+    </div>
+    }
+    @if (i + 2 < Model.Count)
+    {
+        <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="thumbnail">
+                <img src="~/Content/img/@Model[i + 2].ImgPath" />
+                <div class="caption">
+                    <h4 class="pull-right">@Model[i + 2].Price</h4>
+                    <h4>
+                        @Model[i + 2].ProductName
+                    </h4>
+                    <p>@Model[i + 2].Description</p>
+                   @if (Session["User"] != null)
+                   {
+                   <p><a href = "@Url.Action("AddtoCart", "Home", new { Id = Model[i + 2].ProductID }, null)" > Add to Cart</a></p>
+                   }
+                  </div>
+            </div>
+        </div>
+    }
+
+
+  </div>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
